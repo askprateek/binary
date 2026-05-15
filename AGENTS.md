@@ -21,11 +21,24 @@ Never skip a gate. Never write code before requirements and architecture docs ar
 
 ---
 
+## Commands
+
+| Command | What it does |
+|---------|-------------|
+| `/check` | Status snapshot — current phase, what's done, what's next |
+| `/next` | Resume — continues current task or advances to the next one |
+| `/add` | Add a new app to `code/` — conversation-driven, outputs terminal commands |
+| `/test` | Run full regression suite across all apps |
+| `/done` | Mark current task or phase complete |
+
+---
+
 ## Repo Structure
 
 ```
 docs/                        — documentation (clean, approved, structured)
-code/                        — source code
+code/                        — one subfolder per app (api/, web/, worker/, ...)
+tests/                       — registry.md (master test list) + reports/ (e2e output)
 todo/                        — phase files + working artifacts
 todo/requirement-dump.md     — raw dump (Phase 01 only, added to .claudeignore after Phase 02)
 progress.md                  — session context file (read this first when resuming)
@@ -79,10 +92,9 @@ AGENTS.md                    — this file
 
 ### 3. Code Rules
 
-- **No new packages without discussion.** Every new dependency proposed and approved before adding to `package.json`.
-- **No secrets in source.** All secrets go in env vars / Wrangler bindings. Never hardcode keys, tokens, or credentials.
-- **Zod for all request validation.** Every external input (request body, query params) validated with Zod schema before use.
-- **Web Crypto only.** Use `crypto.subtle` for all crypto operations. No Node.js `crypto` module, no third-party crypto libs.
+- **No new packages without discussion.** Every new dependency proposed and approved before adding.
+- **No secrets in source.** All secrets go in env vars or platform-specific config bindings. Never hardcode keys, tokens, or credentials.
+- **Validate all external input.** Every request body, query param, and external API response validated before use. Use the validation library appropriate for the stack.
 - **File changes via Read/Edit/Write tools only.** Never use bash (`sed`, `awk`, `echo >`, `cat <<EOF`) to modify source files.
 - **Ask user to run commands** when sandbox cannot execute them (package installs, test runs, migrations). Provide exact command to copy-paste.
 
