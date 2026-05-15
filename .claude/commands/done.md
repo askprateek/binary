@@ -6,8 +6,11 @@ Do the following:
 2. Read the active phase file in `todo/` to find the task
 
 **If marking a task done:**
-- Verify the task work is committed (check git status)
-- If uncommitted work exists: commit it first with format `[PHASE-N] <verb> <what>`
+- Run `git diff` and `git status` — show the user a summary of all changes made
+- Ask: "Ready to commit? Any changes needed first?"
+- Wait for user approval before committing
+- If user requests changes: make them, show diff again, ask again
+- Once approved: commit with format `[PHASE-N] <verb> <what>`
 - Check off the task in the phase file: `- [ ]` → `- [x]`
 - Commit the updated phase file
 - Update `progress.md` — set Resume Here to the next task

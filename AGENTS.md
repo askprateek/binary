@@ -112,12 +112,13 @@ Phase is done only when ALL true:
 For every task, follow this order strictly:
 
 ```
-Plan → Confirm → Code → Verify
+Plan → Confirm → Code → Verify → Commit
 ```
 
 1. **Plan** — List files to change, logic to add, steps in order. No code yet — logic only.
 2. **Confirm** — Present plan to user. Do not write any code until user approves.
 3. **Code** — Implement exactly what was approved. No scope creep, no bonus improvements.
-4. **Verify** — Check implementation matches plan. Run relevant tests or type checks.
+4. **Verify** — Check implementation matches plan. Run relevant tests or type checks. Show a summary of all changes made.
+5. **Commit** — Ask user: "Ready to commit?" Do not commit until user approves. If user requests changes, go back to step 3.
 
 If plan changes mid-implementation, stop and re-confirm before continuing.
