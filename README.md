@@ -10,10 +10,16 @@ Binary is a GitHub template repo that gives developers a structured workflow for
 
 ## How to use
 
+### New project
 1. Click **Use this template** on GitHub
 2. Open your new repo in Claude Code
 3. Run `/check` — Claude reads your project state and tells you the next step
 4. Follow the guided flow from requirements to deployment
+
+### Existing project
+1. Copy `/convert` to `~/.claude/commands/convert.md` (one-time global install)
+2. Open your existing repo in Claude Code
+3. Run `/convert` — fetches latest Binary files, drops workflow on top, offers to restructure code
 
 ## Commands
 
@@ -24,6 +30,7 @@ Binary is a GitHub template repo that gives developers a structured workflow for
 | `/add` | Add a new app to `code/` — Claude asks questions, gives you setup commands |
 | `/test` | Run full regression suite across all apps |
 | `/done` | Mark current task or phase complete |
+| `/convert` | Install Binary workflow into an existing repo (global command) |
 
 ## Workflow
 

@@ -30,6 +30,7 @@ Never skip a gate. Never write code before requirements and architecture docs ar
 | `/add` | Add a new app to `code/` — conversation-driven, outputs terminal commands |
 | `/test` | Run full regression suite across all apps |
 | `/done` | Mark current task or phase complete |
+| `/convert` | Install Binary workflow into an existing repo (global command, `~/.claude/commands/`) |
 
 ---
 
