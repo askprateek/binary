@@ -75,6 +75,26 @@ For "only if not exists" files — check existence first, fetch only missing one
 
 ---
 
+## Step 2.5: Reload plugins
+
+After user confirms the curl commands ran successfully, tell the user to run `/reload-plugins` in the current Claude Code session to activate the newly installed commands without restarting.
+
+Instruct: "Run `/reload-plugins` now — this loads the new commands into this session."
+
+Wait for user to confirm reload done before continuing.
+
+---
+
+## Step 2.6: Load CLAUDE.md instructions
+
+Read `CLAUDE.md` in the current repo using the Read tool. Parse any `@filename` references (lines starting with `@`). For each referenced file, read it too using the Read tool.
+
+This loads all project instructions into the current session so they take effect immediately.
+
+Confirm to the user: "Instructions from CLAUDE.md (and referenced files) loaded into this session."
+
+---
+
 ## Step 3: Code restructure check
 
 Scan the repo root for common code folders: `src/`, `app/`, `lib/`, `server/`, `client/`, `backend/`, `frontend/`.
